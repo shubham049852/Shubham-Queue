@@ -1,0 +1,245 @@
+#include<iostream.h>
+
+#include<stdio.h>
+
+#include<stdlib.h>
+
+#include<conio.h>
+
+
+struct Node
+
+{
+
+    int data;
+
+    Node *ptr;
+
+};
+
+
+
+class Stack
+
+{
+
+    Node *first,*last,*temp,*p;
+
+
+  public:
+
+
+    Stack()
+
+    {
+
+        first=last=NULL;
+
+    }
+
+    void push()
+
+    {
+
+        int value;
+
+        Node *ptr;
+
+
+        cout<<"\nEnter the number to be pushed : ";
+
+        cin>>value;
+
+
+        p = new Node;
+
+        p->data = value;
+
+        p->ptr = NULL;
+
+
+        if(first==NULL)
+
+        {
+
+            first = last = p;
+
+            last->ptr = NULL;
+
+        }
+
+        else
+
+        {
+
+            last->ptr = p;
+
+            last = p;
+
+            p->ptr = NULL;
+
+        }
+
+
+    }
+
+
+
+    void pop()
+
+    {
+
+    temp= new Node;
+
+
+        if(first==NULL)
+
+            cout<<"\nStack is Empty";
+
+        else
+
+        {
+
+            cout<<"\nDeleted element is : "<<first->data;
+
+            temp=first;
+
+            first=first->ptr;
+
+            delete temp;
+
+        }
+
+    }
+
+
+
+void topele()
+
+{
+
+cout<<"First element is "<<first->data;
+
+}
+
+
+
+
+
+void display()
+
+{
+
+    temp= new Node;
+
+    cout<<"\n Queue elements are \n";
+
+    temp=first;
+
+    while(temp!=NULL)
+
+ {
+
+     cout<<temp->data<<"->";
+
+     temp=temp->ptr;
+
+
+   }
+
+
+   cout<<"NULL";
+
+   }
+
+
+
+
+    void clear()
+
+    {
+
+        Node *ptr1 = first;
+
+
+        while(ptr1 != NULL)
+
+        {
+
+            cout<<ptr1->data<<"->";
+
+            Node *temp = ptr1->ptr;
+
+            delete ptr1;
+
+            ptr1 = temp;
+
+
+        }
+
+        cout<<"NULL\n";
+
+    }
+
+};
+
+
+
+void main()
+
+{
+
+    clrscr();
+
+    Stack s;
+
+    int ch;
+
+  do 
+
+    {
+
+        cout<<"\n1.PUSH\n2.POP\n3.CLEAR\n4. Top element\n 5. Display\n";
+
+        cin>>ch;
+
+        switch(ch)
+
+        {
+
+          case 1:
+
+                  s.push();
+
+                  break;
+
+          case 2:
+
+                  s.pop();
+
+                  break;
+
+          case 3:
+
+                  s.clear();
+
+                  break;
+
+         case 4: s.topele();
+
+                     break;
+
+         case 5:s.display();
+
+                     break;
+
+         case 6: exit(0);
+
+        }
+
+    }while(ch!=6);
+
+getch();
+
+}
+
