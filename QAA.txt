@@ -96,6 +96,16 @@ cout<<"First element is "<<q[head];
 }
 
 
+void clear()
+{
+for(int i = head; i<=last; ++i)
+{
+cout<<q[head--]<<"->";
+}
+ cout<<"cleared";
+}
+
+
 
 
 void Delete()
@@ -176,7 +186,9 @@ clrscr();
 
    cout<<"4) Top element of queue"<<endl;
 
-   cout<<"5) Exit"<<endl;
+   cout<<"5) Clear all elements"<<endl;
+
+   cout<<"6) Exit"<<endl;
 
    do 
 
@@ -206,11 +218,14 @@ clrscr();
 
          break;
 
-         case 5: exit(0);
+         case 5: q.clear();
+         break;
+          
+         case 6: exit(0);
 
       }
 
-   } while(c!=5);
+   } while(c!=6);
 
    getch();
 
